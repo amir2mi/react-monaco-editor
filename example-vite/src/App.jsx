@@ -1,9 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 // import MonacoEditor, { MonacoDiffEditor } from "react-monaco-editor";
-import MonacoEditor, { MonacoDiffEditor } from "../lib";
+import MonacoEditor, { MonacoDiffEditor } from "../../lib";
 
-/*
 class CodeEditor extends React.Component {
   constructor() {
     super();
@@ -81,6 +80,7 @@ class CodeEditor extends React.Component {
   }
 }
 
+/*
 class AnotherEditor extends React.Component {
   constructor() {
     super();
@@ -156,6 +156,7 @@ class AnotherEditor extends React.Component {
     );
   }
 }
+*/
 
 class DiffEditor extends React.Component {
   constructor() {
@@ -196,38 +197,35 @@ const App = () => (
     <h2>Monaco Editor Sample (controlled mode)</h2>
     <CodeEditor />
     <hr />
-    <h2>Another editor (uncontrolled mode)</h2>
-    <AnotherEditor />
+    {/* <h2>Another editor (uncontrolled mode)</h2>
+    <AnotherEditor /> */}
     <hr />
     <h2>Another editor (showing a diff)</h2>
     <DiffEditor />
   </div>
 );
-*/
 
-function CodeEditorFunctional() {
-  const code = `
-    var x = "Hello";
-    alert(x)
-  `;
+// function CodeEditorFunctional() {
+//   const code = `
+//     var x = "Hello";
+//     alert(x)
+//   `;
 
-  return (
-    <MonacoEditor
-      height="400"
-      language="javascript"
-      value={code}
-      // options={options}
-      // onChange={this.onChange}
-      // editorDidMount={this.editorDidMount}
-      // theme={theme}
-    />
-  );
-}
+//   return (
+//     <MonacoEditor
+//       height="400"
+//       language="javascript"
+//       value={code}
+//       // options={options}
+//       // onChange={this.onChange}
+//       // editorDidMount={this.editorDidMount}
+//       // theme={theme}
+//     />
+//   );
+// }
 
-const App2 = () => {
-  return <CodeEditorFunctional />;
-};
+// const App = () => {
+//   return <CodeEditorFunctional />;
+// };
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(<App2 />);
+export default App;
