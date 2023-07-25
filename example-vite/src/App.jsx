@@ -74,6 +74,7 @@ class CodeEditor extends React.Component {
           onChange={this.onChange}
           editorDidMount={this.editorDidMount}
           theme={theme}
+          uri={({ Uri }) => Uri.parse("the-fucking-best-editor")}
         />
       </div>
     );
@@ -102,7 +103,7 @@ class AnotherEditor extends React.Component {
       schemas: [
         {
           uri: "http://myserver/foo-schema.json",
-          schema: {
+          schema: {uri
             type: "object",
             properties: {
               p1: {
@@ -186,6 +187,11 @@ class DiffEditor extends React.Component {
           value={code}
           original={original}
           onChange={this.onChange}
+          originalUri={({ Uri }) => Uri.parse("")}
+          modifiedUri={({ Uri }) => Uri.parse("")}
+          editorDidMount={(editor) => {
+            console.log("editorDidMount:", editor.getModel());
+          }}
         />
       </div>
     );
@@ -194,9 +200,9 @@ class DiffEditor extends React.Component {
 
 const App = () => (
   <div>
-    <h2>Monaco Editor Sample (controlled mode)</h2>
+    {/* <h2>Monaco Editor Sample with URI (controlled mode)</h2>
     <CodeEditor />
-    <hr />
+    <hr /> */}
     {/* <h2>Another editor (uncontrolled mode)</h2>
     <AnotherEditor /> */}
     <hr />
